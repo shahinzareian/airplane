@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <script src="js/fly.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="modal fade" id="areYouSure" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure abuot this?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="confirmDelete">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="areYouSureAir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel12">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure abuot this?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="confirmDeleteAir">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="tooShort" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">too short</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                name is too short. you have to input at least 3 letters.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">okay</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="noName" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">no name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                please input a name.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">okay</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <form>
+        <h2>flights</h2>
+        <lable for="teacherNameInput">origin country:</lable>
+        <input type="text" placeholder="origin country" id="originCountryInput" />
+        </br>
+
+        <lable for="teacherNameInput">destination country:</lable>
+        <input type="text" placeholder="destination country" id="destinationCountryInput" />
+        </br>
+        <select id="airplaneSelect"></select>
+        </br>
+        <button id="createFlightButton" type="button">Create a flight</button>
+    </form>
+</div>
+
+<div class="container">
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>origin country</th>
+            <th>destination country</th>
+            <th>airplane name</th>
+            <th>delete</th>
+
+        </tr>
+        </thead>
+        <tbody id="flyContainer" class="table table-bordered table-striped table-hover">
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <form>
+        <h2>airplanes</h2>
+        <lable for="teacherNameInput">Airplane name:</lable>
+        <input type="text" placeholder="Airplane name" id="airplaneNameInput" />
+        </br>
+
+
+        <button id="createAirplaneButton" type="button">Create an Airplane</button>
+    </form>
+</div>
+<div class="container">
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>airplane name</th>
+            <th>delete</th>
+
+        </tr>
+        </thead>
+        <tbody id="airplaneContainer" class="table table-bordered table-striped table-hover">
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <form>
+        <h2>make airPlane full</h2>
+
+        <button id="makeFullButton" type="button">make full</button>
+    </form>
+</div>
+
+</body>
+</html>
